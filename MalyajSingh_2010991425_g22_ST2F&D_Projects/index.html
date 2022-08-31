@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <style>
+        fieldset{
+    border: 3px solid blue;
+    box-shadow: 0px 3px 3px black;
+    margin-right: 10-px;
+}
+fieldset .row input{
+    margin-bottom: 3px;
+    width: 100%;
+    height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main"></div>
+    <center>
+    <h1><b><u>STUDENT REGISTRATION FORM</u></b></h1></center>
+    <div class="boxs">
+    <form action="" name="frm" onSubmit="return validate()">
+        <div>
+            <div class="updata1">
+            <div class="row">
+                <div class="col-3"><label>FIRST NAME: </label></div>
+                <div class="col-sm-6"><input type="text" pattern="[a-zA-Z]*" name="fname">(max 30 characters a-z and A-Z)</div>
+            </div>
+            <div class="row">
+                <div class="col-3"><label>LAST NAME: </label></div>
+                <div class="col-sm-6"><input type="text" pattern="[a-zA-Z]*" name="lname">(max 30 characters a-z and A-Z)</div>
+            </div>
+            <div class="row">
+                <div class="col-3"><label>DATE OF BIRTH: </label></div>
+                <div class="col-sm-6">
+                    <select id="day">
+                        <option value="Day" >Day</option>
+                        <script>
+                            for(i=1;i<=31;i++)
+                {
+                    document.write("<option value='+i+'>"+i+"</option>");
+                }
+                        </script>
+                    </select>
+                    <select id="month">
+                        <option value="Month">Month</option>
+                        <script>
+                            for(i=0;i<12;i++)
+                {
+                    var x;
+                    if(i==0)
+                    {
+                        x="Jan";
+                    }
+                    else if(i==1)
+                    {
+                        x="Feb";
+                    }
+                    else if(i==2)
+                    {
+                        x="Mar";
+                    }
+                    else if(i==3)
+                    {
+                        x="Apr";
+                    }
+                    else if(i==4)
+                    {
+                        x="May";
+                    }
+                    else if(i==5)
+                    {
+                        x="Jun";
+                    }
+                    else if(i==6)
+                    {
+                        x="Jul";
+                    }
+                    else if(i==7)
+                    {
+                        x="Aug";
+                    }
+                    else if(i==8)
+                    {
+                        x="Sept";
+                    }
+                    else if(i==9)
+                    {
+                        x="Oct";
+                    }
+                    else if(i==10)
+                    {
+                        x="Nov";
+                    }
+                    else if(i==11)
+                    {
+                        x="Dec";
+                    }
+                    document.write("<option value='+i+'>"+x+"</option>");
+                }
+                        </script>
+                    </select>
+                    <select id="year">
+                        <option value="Year">Year</option>
+                        <script>
+                            for(i=1994;i<=2022;i++)
+                {
+                    document.write("<option value='+i+'>"+i+"</option>");
+                }
+                        </script>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3"><label>EMAIL ID: </label></div><div class="col-sm-6"><input type="email" name="mails" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}"></div>
+            </div>
+            <div class="row">
+                <div class="col-3"><label>MOBILE NUMBER: </label></div><div class="col-sm-6"><input type="number" name="mob">(10 digit number)</div>
+            </div>
+            <div class="row">
+                <div class="col-3"><label>GENDER: </label></div><div class="col-sm-6">male <input type="radio" name="gender2" value="male"> female <input type="radio" name="gender2" value="female"></div>
+            </div>
+            <div class="row">
+                <div class="col-3"><label>ADDRESS: </label></div><div class="col-sm-6"><textarea id="address"></textarea></div>
+            </div>
+            <div class="row">
+                <div class="col-3"><label>CITY: </label></div><div class="col-sm-6"><input type="text" pattern="[a-zA-Z]*" name="city">(max 30 characters a-z and A-Z)</div>
+            </div>
+            <div class="row">
+                <div class="col-3"><label>PIN CODE: </label></div><div class="col-sm-6"><input type="number" name="pin">(6 digit number)</div>
+            </div>
+            <div class="row">
+                <div class="col-3"><label>STATE: </label></div><div class="col-sm-6"><input type="text" pattern="[a-zA-Z]*" name="state">(max 30 characters a-z and A-Z)</div>
+            </div>
+            <div class="row">
+                <div class="col-3"><label>COUNTRY: </label></div><div class="col-sm-6"><input type="text" placeholder="India"></div>
+            </div>
+            <div class="row">
+                <div class="col-3"><label>HOBBIES: </label></div><div class="col-sm-4">Drawing  <input type="checkbox" name="skill" value="Drawing">
+                                                                                       Singing  <input type="checkbox" name="skill" value="Singing">
+                                                                                       Dancing  <input type="checkbox" name="skill" value="Dancing">
+                                                                                       Sketching  <input type="checkbox"name="skill" value="Sketching"><br>
+                                                                                       Others  <input type="checkbox" name="skil" value="">&nbsp;&nbsp;<input type="text" name="others" pattern="[a-zA-Z]*">
+                                                                                    </div>
+            </div>
+        </div>
+                <div class="row">
+                    <div class="col-3">Qualification</div>
+                    <div class="col-md-9">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-1">SI.No.</div>
+                                <div class="col-2">Examination</div>
+                                <div class="col-3"><center>Board</center></div>
+                                <div class="col-3"><center>Percentage</center></div>
+                                <div class="col-3"><center>Year of Passing</center></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1">1</div>
+                                <div class="col-2">Class X</div>
+                                <div class="col-3"><input type="text" name="x-board" id="x-board"></div>
+                                <div class="col-3"><input type="float" name="x-per" id="x-per"></div>
+                                <div class="col-3"><input type="text" name="x-yop" id="x-yop"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1">2</div>
+                                <div class="col-2">Class XII</div>
+                                <div class="col-3"><input type="text" name="xii-board" id="xii-board"></div>
+                                <div class="col-3"><input type="float" name="xii-per" id="xii-per"></div>
+                                <div class="col-3"><input type="number" name="xii-yop" id="xii-yop"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1">3</div>
+                                <div class="col-2">Graduation</div>
+                                <div class="col-3"><input type="text" name="g-board" id="g-board"></div>
+                                <div class="col-3"><input type="float" name="g-per" id="g-per"></div>
+                                <div class="col-3"><input type="number" name="g-yop" id="g-yop"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1">4</div>
+                                <div class="col-2">Masters</div>
+                                <div class="col-3"><input type="text" name="m-board" id="m-board"></div>
+                                <div class="col-3"><input type="float" name="m-per" id="m-per"></div>
+                                <div class="col-3"><input type="number" name="m-yop" id="m-yop"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-2"></div>
+                                <div class="col-3">(10 char max)</div>
+                                <div class="col-3">(upto 2 decimal)</div>
+                                <div class="col-3"></div>
+                            </div>
+                        </fieldset>
+                        
+                    </div>
+                </div>
+        <div class="row">
+            <div class="col-3"><label>COURSES APPLIED FOR: </label></div><div class="col-sm-6">BCA <input type="radio" name="crc" value="BCA">B.sc <input type="radio" name="crc" value="B.sc">B.comm <input type="radio" name="crc" value="B.comm">B.A. <input type="radio" name="crc" value="B.A."></div>
+        </div>
+        <center id="submitss"><div><input type="submit" name="submit" value="SUBMIT"> <input type="reset" name="reset" value="RESET" onclick="reset()"></div></center>
+        
+    </form>
+</div>
+<footer class="page-footer font-small blue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2022 Copyright:
+      <b>Malyaj Singh 2010991425 G-22</b>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+    <script>
+        
+// document.write(txt);
+function validate(){
+    var fname1=document.forms["frm"]["fname"].value;
+    var lname1=document.forms["frm"]["lname"].value;
+    var email1=document.forms["frm"]["mails"].value;
+    // var gender=document.forms["frm"]["gender2"].value;
+    var mob1=document.forms["frm"]["mob"].value;
+    var city1=document.forms["frm"]["city"].value;
+    var pin1=document.forms["frm"]["pin"].value;
+    var state1=document.forms["frm"]["state"].value;
+    var others=document.forms["frm"]["others"].value;
+    var skills=document.forms["frm"]["skill"];
+    var other1=document.forms["frm"]["skil"];
+    // var courses=document.forms["frm"]["crc"].value;
+    var gender = document.getElementsByName('gender2');
+    var courses = document.getElementsByName('crc');
+    var address= document.getElementById('address').value;
+    
+
+
+    
+
+    var gender_choosen;
+    var courses_choosen;
+    var skills_choosen = [];
+    var others_choosen;
+    
+    // if(courses){
+    //     for(i = 0; i < courses.length; i++) {
+    //         if(courses[i].checked){
+    //             courses_choosen = courses[i].value;
+    //             break;
+    //         }
+    //     }
+    // }else{
+    //      alert("Courses not selected");
+    // }
+    
+    
+
+    //board
+    var x_board = document.getElementById('x-board').value;
+    var xii_board = document.getElementById('xii-board').value;
+    var g_board = document.getElementById('g-board').value;
+    var m_board = document.getElementById('m-board').value;
+    var x_per = document.getElementById('x-per').value;
+    var xii_per = document.getElementById('xii-per').value;
+    var m_per = document.getElementById('m-per').value;
+    var g_per = document.getElementById('g-per').value;
+    var x_yop = document.getElementById('x-yop').value;
+    var xii_yop = document.getElementById('xii-yop').value;
+    var m_yop = document.getElementById('m-yop').value;
+    var g_yop = document.getElementById('g-yop').value;
+
+    var x_per1=parseFloat(x_per).toFixed(2);
+    var g_per1=parseFloat(g_per).toFixed(2);
+    var m_per1=parseFloat(m_per).toFixed(2);
+    var xii_per1=parseFloat(xii_per).toFixed(2);
+    
+    
+
+    //date
+    var month = document.getElementById('month');
+    var month_choosen = month.options[month.selectedIndex].text;
+    var day = document.getElementById('day');
+    var day_choosen = day.options[day.selectedIndex].text;
+    var year = document.getElementById('year');
+    var year_choosen = year.options[year.selectedIndex].text;
+
+    
+    // var l='/^[a-zA-Z]+$/';
+    // var t=fname1.match(l);
+    if(fname1=="")
+    {
+        alert("invalid first Name");
+        return false;
+    }
+    // else if(!t)
+    // {
+    //     alert("invalid first Name");
+    //     return false;
+    // }
+    else if(lname1=="")
+    {
+        alert("invalid Last Name");
+        return false;
+    }
+    else if(email1=="")
+    {
+        alert("Please Enter Valid Email");
+        return false;
+    }
+    else if(mob1.length>11 || mob1.length<10)
+    {
+        alert("Please Enter the correct mobile no.");
+        return false;
+    }
+    for(i = 0; i < gender.length; i++) {
+        if(gender[i].checked){
+            gender_choosen = gender[i].value;
+            break;
+        }
+    }
+    if (!gender_choosen) {
+        alert("Gender not selected");
+        return false;
+    }
+    if(address==""){
+        alert("Please Enter Address");
+        return false;
+    }
+    for(i = 0; i < courses.length; i++) {
+                if(courses[i].checked){
+                    courses_choosen = courses[i].value;
+                    break;
+                }
+            }
+    if (!courses_choosen) {
+                alert("Courses not selected");
+                return false;
+            }
+    
+    for(i=0;i<skills.length;i++){
+        if(skills[i].checked){
+            skills_choosen.push(skills[i].value);
+        }
+    }
+    if(other1.checked){
+        others_choosen=others;
+    }
+    
+    else if(city1=="" || city1.length>30)
+    {
+        alert("Please Enter A Valid City");
+        return false;
+    }
+    else if(pin1.length>6 || pin1.length<6)
+    {
+        alert("Please Enter Valid Pin");
+        return false;
+    }
+    else if(state1=="" || state1.length>30)
+    {
+        alert("Please Enter A Valid State");
+        return false;
+    }
+    else if(day_choosen=='Day'){
+        alert("Enter Valid Date");
+        return false;
+    }
+    else if(month_choosen=='Month'){
+        alert("Enter Valid Date");
+        return false;
+    }
+    else if(year_choosen=='Year'){
+        alert("Enter Valid Date");
+        return false;
+    }
+    if(x_board==="" || xii_board ==="" || g_board===""|| m_board==="" || x_per==="" || xii_per==="" || m_per==="" ||g_per ==="" ||xii_yop==="" || x_yop === "" ||m_yop ==="" || g_yop ===""){
+        alert("Please Fill All the required Details .");
+        return false;
+    }
+    else if(x_board.length>10 || xii_board.length>10 || m_board.length>10 || g_board.length>10){
+        alert("Please Fill board values according to given parameters.");
+        return false;
+    }
+    else if(!((x_board >='A' && x_board<='Z') || (x_board>='a' && x_board<='z'))){
+        alert("Enter board Name according to the given parameters.");
+        return false;
+    }
+    else if(!((x_board >='A' && x_board<='Z') || (x_board>='a' && x_board<='z'))){
+        alert("Enter board Name according to the given parameters.");
+        return false;
+    }
+    else if(!((xii_board >='A' && xii_board<='Z') || (xii_board>='a' && xii_board<='z'))){
+        alert("Enter board Name according to the given parameters.");
+        return false;
+    }
+    else if(!((m_board >='A' && m_board<='Z') || (m_board>='a' && m_board<='z'))){
+        alert("Enter board Name according to the given parameters.");
+        return false;
+    }
+
+    else if(!((m_board >='A' && m_board<='Z') || (m_board>='a' && m_board<='z'))){
+        alert("Enter board Name according to the given parameters.");
+        return false;
+    }
+    
+    
+    else{
+        alert("Form Submitted!")
+    //     document.write(`First Name :  ${fname1} <br>`);
+    // document.write(`<br> Last Name :   ${lname1} <br>`);
+    // document.write(`<br> Date of Birth :  ${day_choosen}  /  ${month_choosen}  /  ${year_choosen} <br>`);
+    // document.write(`<br> Email :  ${email1} <br>`);
+    // document.write(`<br> Mobile Number :  ${mob1} <br>`);
+    // document.write(`<br> Gender :  ${gender_choosen} <br>`);
+    // document.write(`<br> Address :  ${address} <br>`);
+    // document.write(`<br> Hobbies :  ${skills_choosen} <br>`);
+    // document.write(`<br> Other Hobbies :  ${others_choosen} <br>`);
+    // document.write(`<br> City :  ${city1} <br>`);
+    // document.write(`<br> Pin Code :  ${pin1} <br>`);
+    // document.write(`<br> State : ${state1} <br>`);
+    // document.write(`<br> Country : India <br>`);
+
+    
+
+    document.write(`<style>table,td,tr{
+        border: 3px solid #6a5acd;
+    }</style><table id="table1"><tr><th colspan=2>DATA</th></tr><tr><td>Name: </td><td>${fname1}&nbsp${lname1}
+                    </td></tr><tr><td>DOB: </td><td>${day_choosen}  /  ${month_choosen}  /  ${year_choosen}
+                    </td></tr><tr><td>Email: </td><td>${email1}</td></tr><tr><td>Mobile No: </td><td>${mob1}
+                    </td></tr><tr><td>Gender: </td><td>${gender_choosen}
+                    </td></tr><tr><td>Address: </td><td>${address}
+                    </td></tr><tr><td>Hobbies: </td><td>${skills_choosen}
+                    </td></tr><tr><td>Other Hobbies: </td><td>${others_choosen}
+                    </td></tr><tr><td>Course: </td><td>${courses_choosen}
+                    </td></tr><tr><td>City: </td><td>${city1}
+                    </td></tr><tr><td>Pin Code: </td><td>${pin1}
+                    </td></tr><tr><td>State: </td><td>${state1}
+                    </td></tr><tr><td>Country: </td><td>India</td></tr></table><br>
+                    
+                    <table>
+        <tr>
+            <th colspan="5">Qualification</th>
+        </tr>
+        <tr>
+            <td>SL.No</td>
+            <td>Examination</td>
+            <td>Board</td>
+            <td>Percentage</td>
+            <td>Year of Passing</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Class X</td>
+            <td>${x_board}</td>
+            <td>${x_per1}</td>
+            <td>${x_yop}</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Class XII</td>
+            <td>${xii_board}</td>
+            <td>${xii_per1}</td>
+            <td>${xii_yop}</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Graduation</td>
+            <td>${g_board}</td>
+            <td>${g_per1}</td>
+            <td>${g_yop}</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Masters</td>
+            <td>${m_board}</td>
+            <td>${m_per1}</td>
+            <td>${m_yop}</td>
+        </tr>
+    </table><br><br>`);
+    
+    }
+    
+
+}
+function reset() {
+    document.getElementsByName("frm").reset();
+  }
+
+
+    </script>
+    <script src="script.js"></script>
+    <script src="js/all.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
